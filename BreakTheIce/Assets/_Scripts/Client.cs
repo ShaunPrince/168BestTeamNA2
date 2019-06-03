@@ -50,16 +50,10 @@ public class Client : MonoBehaviour
         // CLIENT ONLY CODE 
         hostID = NetworkTransport.AddHost(topo, 0); // port 0, nobody supposed to connect to us (no peer to peer)
 
-#if UNITY_WEBGL && !UNITY_EDITOR
-        // Standalone Client
-        connectionId = NetworkTransport.Connect(hostID, SERVER_IP, WEB_PORT, 0, out error);    // error changes value so you know what went wrong
-                                                                            // #num val - NetworkError Unity
-        Debug.Log("Connecting from web");
-#else
         // Standalone Client
         connectionId = NetworkTransport.Connect(hostID, SERVER_IP, PORT, 0, out error);
         Debug.Log("Connecting from standalone");
-#endif
+
         Debug.Log(string.Format("Attempting to connect on {0}...", SERVER_IP));
         isStarted = true;
 
@@ -129,8 +123,21 @@ public class Client : MonoBehaviour
                 Debug.Log("Unexpected NETOP"); // should not be sending none
                 break;
 
+            case NetOP.OnClientConnect:
+                SetPlayerType((Net_OnClientConnect)msg);
+                break;
+
         }
 
+    }
+    private void SetPlayerType(Net_OnClientConnect playerType)
+    {
+        Debug.Log("Setting player to type " + PlayerType.ToType(playerType.playerNum));
+
+        if (playerType.playerNum == 0)
+            GameManager.Instance.playerType = PlayerType.PolarBear;
+        else if (playerType.playerNum == 1)
+            GameManager.Instance.playerType = PlayerType.Penguin;
     }
     #endregion
 

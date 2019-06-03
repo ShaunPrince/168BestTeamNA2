@@ -61,7 +61,7 @@ public class Server : MonoBehaviour
     {
         if (!isStarted) return;
 
-        int recHostID;      // will always be standalone in this case standalone (which platform)
+        int recHostID;      // will always be standalone in this case (which platform)
         int connectionID;   // Which user is sending me this
         int channelID;      // Which lane is he sending that message from?
 
@@ -78,6 +78,8 @@ public class Server : MonoBehaviour
 
             case NetworkEventType.ConnectEvent:
                 Debug.Log(string.Format("User {0} has connected through host {1}!", connectionID, recHostID));
+                // save connected player as Polar bear or Penguin, reply with what type of player connID is
+                OnConnect(connectionID, channelID, recHostID);
                 break;
 
             case NetworkEventType.DisconnectEvent:
@@ -101,6 +103,34 @@ public class Server : MonoBehaviour
                 Debug.Log("Unexpected network event type"); // this should never be called
                 break;
         }
+    }
+    private void OnConnect(int cnnID, int channelID, int recHostID)
+    {
+        // save connected player as Polar bear or Penguin, reply with what type of player connID is
+        // connID player 0 will always be polar bear
+        // conID player 1 will always be penguin
+
+        int addPlayer = GameManager.Instance.addPlayer();
+        if (addPlayer == 0)
+        {
+            // Failed to add player, game is full
+            Debug.Log("Could not add Player to game");
+        }
+        else if (addPlayer == 1)
+        {
+            // Adding player succeeded
+            Debug.Log(string.Format("Setting player {0} as {1}", cnnID, PlayerType.ToType(cnnID)));
+
+            Net_OnClientConnect occ = new Net_OnClientConnect();
+            occ.playerNum = cnnID;
+
+            SendClient(recHostID, cnnID, occ);
+        }
+        else
+        {
+            Debug.Log("Error in OnConnect() in Server.cs trying to add player " + cnnID);
+        }
+
     }
 
     #region OnData
