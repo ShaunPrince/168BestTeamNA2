@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
+    public GameObject bear;
+
+    private void Awake()
+    {
+        bear = GameObject.FindGameObjectWithTag("Bear");
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +28,13 @@ public class Piece : MonoBehaviour
         {
             Debug.Log(collision.gameObject);
             Destroy(collision.gameObject);
+            if(bear.GetComponent<BearController>().ActivePiece == this.gameObject)
+            {
+                bear.GetComponent<BearController>().SpawnPiece();
+            }
+
             Destroy(this.gameObject);
         }
     }
+
 }

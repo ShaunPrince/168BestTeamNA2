@@ -20,7 +20,7 @@ public class PieceSpawner : MonoBehaviour
     public GameObject GenerateRandomPiece()
     {
         GameObject temp = piecePrefabs[Random.Range(0, piecePrefabs.Length)];
-        temp = GameObject.Instantiate(temp,Vector3.zero,Quaternion.identity);
+        temp = GameObject.Instantiate(temp);
         return temp;
     }
 

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BearPiece
   - Floor
+  - Killbox
+  - Bear
   layers:
   - Default
   - TransparentFX
