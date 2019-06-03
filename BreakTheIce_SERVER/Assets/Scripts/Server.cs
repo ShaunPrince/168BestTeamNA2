@@ -144,10 +144,30 @@ public class Server : MonoBehaviour
             case NetOP.None:
                 Debug.Log("Unexpected NETOP"); // should not be sending none
                 break;
-                // create new case for each type of msg expected
-                // not good for scaling up tho
+            // create new case for each type of msg expected
+            // not good for scaling up tho
+
+            case NetOP.DropPiece:
+                // Server basically forwards the msg to the penguin client
+                SendDroppedPieceToPenguin(cnnID, channelID, recHostID, (Net_DropPiece)msg);
+                break;
         }
 
+    }
+    private void SendDroppedPieceToPenguin(int cnnID, int channelID, int recHostID, Net_DropPiece dpMsg)
+    {
+        // since there is only 2 clients and only client 1 (polarbear) can send this type of data, forward onto client 2 (penguin)
+        // but just to be safe, make sure data is being recieved by first client
+        if (cnnID == PlayerType.PolarBear)
+        {
+            Debug.Log(string.Format("{0} piece dropping from ({1}, {2})", PieceType.ToType(dpMsg.PeiceType), dpMsg.xPos, dpMsg.yPos));
+            SendClient(recHostID, PlayerType.Penguin, dpMsg);
+        }
+        else
+        {
+            Debug.Log(string.Format("Should not have recieved a DropPiece msg from client {0}, error in SendDroppedPieceToPenguin in Server.cs", cnnID));
+        }
+        
     }
     #endregion
 

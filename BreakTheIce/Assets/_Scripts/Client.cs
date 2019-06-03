@@ -127,6 +127,11 @@ public class Client : MonoBehaviour
                 PlayerSetUp((Net_OnClientConnect)msg);
                 break;
 
+            case NetOP.DropPiece:
+                // Should only be recieving this type if client is penguin
+                SpawnDroppedPiece((Net_DropPiece)msg);
+                break;
+
         }
 
     }
@@ -149,6 +154,17 @@ public class Client : MonoBehaviour
 
         GameManager.Instance.SetCamera();   // set camera
     }
+    private void SpawnDroppedPiece(Net_DropPiece dpMsg)
+    {
+        if (GameManager.Instance.playerType == PlayerType.Penguin)
+        {
+            Debug.Log(string.Format("Spawning {0} piece at ({1}, {2})", PieceType.ToType(dpMsg.PeiceType), dpMsg.xPos, dpMsg.yPos));
+        }
+        else
+        {
+            Debug.Log(string.Format("Should to have recieved a DropPiece msg on PolarBear, error in SpawnDroppedPiece in Client.cs"));
+        }
+    }
     #endregion
 
     #region Send
@@ -168,6 +184,16 @@ public class Client : MonoBehaviour
 
         // Send the data, connection type, user, channel type, data, size, error
         NetworkTransport.Send(hostID, connectionId, reliableChannel, buffer, BYTE_SIZE, out error);
+    }
+    public void SendPieceDropped(int pieceDropped, float xPos, float yPos)
+    {
+        Net_DropPiece dp = new Net_DropPiece();
+
+        dp.PeiceType = pieceDropped;
+        dp.xPos = xPos;
+        dp.yPos = yPos;
+
+        SendServer(dp);
     }
     #endregion
 

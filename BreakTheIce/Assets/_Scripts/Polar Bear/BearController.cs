@@ -82,6 +82,9 @@ public class BearController : MonoBehaviour
         pieceFalling = true;
         ActivePiece.GetComponent<Rigidbody>().useGravity = true;
 
+        // Notify server that a peice has been dropped
+        Client.Instance.SendPieceDropped(ActivePiece.GetComponent<Piece>().GetPieceType(), ActivePiece.transform.position.x, ActivePiece.transform.position.y);
+
     }
 
     public void MoveActivePiece()

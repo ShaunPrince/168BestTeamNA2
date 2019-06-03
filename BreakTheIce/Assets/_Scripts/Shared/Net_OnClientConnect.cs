@@ -7,5 +7,5 @@ public class Net_OnClientConnect : NetMsg
         OP = NetOP.OnClientConnect;
     }
 
-    public int playerNum; // 0 = polar bear, 1 = penguin
+    public int playerNum { set; get; } // 0 = polar bear, 1 = penguin
 }
