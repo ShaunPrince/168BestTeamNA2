@@ -124,20 +124,30 @@ public class Client : MonoBehaviour
                 break;
 
             case NetOP.OnClientConnect:
-                SetPlayerType((Net_OnClientConnect)msg);
+                PlayerSetUp((Net_OnClientConnect)msg);
                 break;
 
         }
 
     }
-    private void SetPlayerType(Net_OnClientConnect playerType)
+    private void PlayerSetUp(Net_OnClientConnect playerType)
     {
-        Debug.Log("Setting player to type " + PlayerType.ToType(playerType.playerNum));
-
-        if (playerType.playerNum == 0)
-            GameManager.Instance.playerType = PlayerType.PolarBear;
-        else if (playerType.playerNum == 1)
+        if (playerType.playerNum == PlayerType.PolarBear)
+        {
+            GameManager.Instance.playerType = PlayerType.PolarBear; // set player type
+        }
+        else if (playerType.playerNum == PlayerType.Penguin)
+        {
             GameManager.Instance.playerType = PlayerType.Penguin;
+        }
+        else
+        {
+            Debug.Log("Error in PlayerSetUp() in Client.cs");
+        }
+
+        Debug.Log("Setting player to type " + PlayerType.ToType(GameManager.Instance.playerType));
+
+        GameManager.Instance.SetCamera();   // set camera
     }
     #endregion
 
