@@ -158,7 +158,7 @@ public class Client : MonoBehaviour
     {
         if (GameManager.Instance.playerType == PlayerType.Penguin)
         {
-            Debug.Log(string.Format("Spawning {0} piece at ({1}, {2})", PieceType.ToType(dpMsg.PeiceType), dpMsg.xPos, dpMsg.yPos));
+            Debug.Log(string.Format("Spawning {0} piece at ({1}, {2})", PieceType.ToType(dpMsg.PieceType), dpMsg.xPos, dpMsg.yPos));
         }
         else
         {
@@ -185,11 +185,11 @@ public class Client : MonoBehaviour
         // Send the data, connection type, user, channel type, data, size, error
         NetworkTransport.Send(hostID, connectionId, reliableChannel, buffer, BYTE_SIZE, out error);
     }
-    public void SendPieceDropped(int pieceDropped, float xPos, float yPos)
+    public void SendPieceDropped(PieceType.PType pieceDropped, float xPos, float yPos)
     {
         Net_DropPiece dp = new Net_DropPiece();
 
-        dp.PeiceType = pieceDropped;
+        dp.PieceType = pieceDropped;
         dp.xPos = xPos;
         dp.yPos = yPos;
 

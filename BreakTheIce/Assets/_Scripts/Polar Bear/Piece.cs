@@ -5,7 +5,7 @@ using UnityEngine;
 public class Piece : MonoBehaviour
 {
     public GameObject bear;
-    public int pieceType;
+    public PieceType.PType pieceType;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class Piece : MonoBehaviour
         
     }
 
-    public int GetPieceType()
+    public PieceType.PType GetPieceType()
     {
         return pieceType;
     }

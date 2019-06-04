@@ -7,7 +7,7 @@ public class Net_DropPiece : NetMsg
         OP = NetOP.DropPiece;
     }
 
-    public int PeiceType { set; get; }
+    public PieceType.PType PieceType { set; get; }
     public float xPos { set; get; }
     public float yPos { set; get; }
 }
