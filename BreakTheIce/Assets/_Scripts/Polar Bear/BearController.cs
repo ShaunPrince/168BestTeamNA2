@@ -47,7 +47,7 @@ public class BearController : MonoBehaviour
 
     private void CheckInput()
     {
-        if(!pieceFalling)
+        if(!pieceFalling && ActivePiece != null)
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {

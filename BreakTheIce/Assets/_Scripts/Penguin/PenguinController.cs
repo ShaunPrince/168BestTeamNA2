@@ -13,7 +13,7 @@ public class PenguinController : MonoBehaviour
 
     private float deltaX;
     private float deltaZ;
-    private bool isGrounded;
+    public bool isGrounded;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +29,7 @@ public class PenguinController : MonoBehaviour
         {
             Jump();
         }
+
     }
 
     private void FixedUpdate()
@@ -44,7 +45,7 @@ public class PenguinController : MonoBehaviour
 
     private void CheckGrounded()
     {
-        if(Physics.Raycast(this.transform.position,Vector3.down,1.1f,10))
+        if(Physics.Raycast(this.transform.position,Vector3.down,.51f, ~(1<<10)))
         {
             isGrounded = true;
         }
@@ -64,6 +65,9 @@ public class PenguinController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier, ForceMode.Acceleration);
+        if (isGrounded)
+            _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier, ForceMode.Acceleration);
+        else
+            _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier * 0.25f, ForceMode.Acceleration);
     }
 }

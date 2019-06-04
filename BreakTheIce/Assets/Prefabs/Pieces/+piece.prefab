@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8888040483449637589}
   - component: {fileID: 8888040483449637586}
   - component: {fileID: 8888040483449637587}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (1)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8888040483626566553}
   - component: {fileID: 8888040483626566550}
   - component: {fileID: 8888040483626566551}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (3)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 8888040483896618815}
   - component: {fileID: 8888040483896618812}
   - component: {fileID: 8888040483896618813}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (4)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8888040483964498686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Models
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 8888040484100327656}
   - component: {fileID: 8888040484100327657}
   - component: {fileID: 8888040484100327654}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (2)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 8888040484975342368}
   - component: {fileID: 8888040484975342369}
   - component: {fileID: 8888040484975342398}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 8888040485180573947}
   - component: {fileID: 8888040485180573946}
   - component: {fileID: 8888040485180573949}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: +piece
   m_TagString: BearPiece
   m_Icon: {fileID: 0}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedModifier: 10
-  jumpForce: 100
+  jumpForce: 3
   _rb: {fileID: 979700414}
   isGrounded: 0
 --- !u!1 &2060341811
@@ -467,7 +467,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -630,6 +630,16 @@ PrefabInstance:
       propertyPath: ps
       value: 
       objectReference: {fileID: 229939470}
+    - target: {fileID: 6639263551556537733, guid: ff034bb1aee724e4e9e8ce68946a75d8,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639263551556537733, guid: ff034bb1aee724e4e9e8ce68946a75d8,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff034bb1aee724e4e9e8ce68946a75d8, type: 3}
 --- !u!1001 &7775596211947683040

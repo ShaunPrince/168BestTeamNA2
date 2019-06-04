@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 454101809124362536}
   - component: {fileID: 454101809124362539}
   - component: {fileID: 454101809124362538}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (4)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 454101809437208319}
   - component: {fileID: 454101809437208318}
   - component: {fileID: 454101809437208305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (2)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 454101809593849065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Models
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 454101809927087502}
   - component: {fileID: 454101809927087489}
   - component: {fileID: 454101809927087488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (3)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 454101810085637314}
   - component: {fileID: 454101810085637317}
   - component: {fileID: 454101810085637316}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (1)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 454101810507951852}
   - component: {fileID: 454101810507951853}
   - component: {fileID: 454101810507951850}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: '[]piece'
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 454101810713744695}
   - component: {fileID: 454101810713744694}
   - component: {fileID: 454101810713744681}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 6136886938269952906}
   - component: {fileID: 1666936366777634969}
   - component: {fileID: 3822517605346557522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (7)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 1852071552256595378}
   - component: {fileID: 4420722165862057546}
   - component: {fileID: 5537192976294453824}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (6)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 6265093943728046984}
   - component: {fileID: 1859900581295358530}
   - component: {fileID: 4593318834045336472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: block (5)
   m_TagString: BearPiece
   m_Icon: {fileID: 0}
