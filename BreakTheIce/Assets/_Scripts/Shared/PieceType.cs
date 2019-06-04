@@ -5,10 +5,11 @@ using UnityEngine;
 public static class PieceType
 {
     public enum PType { Plus, Square, Line, L, Slash }
-    public const int Cross = 0;
-    public const int L = 1;
-    public const int Square = 2;
-    public const int Z = 3;
+    public const int Plus = 0;
+    public const int Square = 1;
+    public const int Line = 2;
+    public const int L = 3;
+    public const int Slash = 4;
 
     public static string ToType(PType num)
     {

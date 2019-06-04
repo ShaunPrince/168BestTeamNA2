@@ -160,7 +160,7 @@ public class Server : MonoBehaviour
         // but just to be safe, make sure data is being recieved by first client
         if (cnnID == PlayerType.PolarBear)
         {
-            Debug.Log(string.Format("{0} piece dropping from ({1}, {2})", PieceType.ToType(dpMsg.PeiceType), dpMsg.xPos, dpMsg.yPos));
+            Debug.Log(string.Format("{0} piece dropping from ({1}, {2})", PieceType.ToType(dpMsg.PieceType), dpMsg.xPos, dpMsg.yPos));
             SendClient(recHostID, PlayerType.Penguin, dpMsg);
         }
         else
