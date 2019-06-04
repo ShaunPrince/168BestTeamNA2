@@ -65,6 +65,9 @@ public class PenguinController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier, ForceMode.Acceleration);
+        if (isGrounded)
+            _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier, ForceMode.Acceleration);
+        else
+            _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier * 0.25f, ForceMode.Acceleration);
     }
 }
