@@ -24,7 +24,7 @@ public class BearController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnPiece();
     }
 
     // Update is called once per frame

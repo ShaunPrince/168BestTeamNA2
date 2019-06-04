@@ -13,6 +13,9 @@ ModelImporter:
     100014: transform1
     100016: transform2
     100018: transform3
+    100020: Camera
+    100022: Light
+    100024: Mesh
     400000: Beak
     400002: Body
     400004: Body1
@@ -23,10 +26,18 @@ ModelImporter:
     400014: transform1
     400016: transform2
     400018: transform3
+    400020: Camera
+    400022: Light
+    400024: Mesh
+    2000000: Camera
     2100000: lambert1
     2300000: Body1
+    2300002: Mesh
     3300000: Body1
+    3300002: Mesh
     4300000: Body1
+    4300002: Mesh
+    10800000: Light
   externalObjects: {}
   materials:
     importMaterials: 1

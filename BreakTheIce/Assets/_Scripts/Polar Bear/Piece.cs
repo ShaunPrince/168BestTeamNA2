@@ -43,4 +43,9 @@ public class Piece : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        
+    }
+
 }
