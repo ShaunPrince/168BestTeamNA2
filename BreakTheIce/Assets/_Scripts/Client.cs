@@ -159,6 +159,7 @@ public class Client : MonoBehaviour
         if (GameManager.Instance.playerType == PlayerType.Penguin)
         {
             Debug.Log(string.Format("Spawning {0} piece at ({1}, {2})", PieceType.ToType(dpMsg.PieceType), dpMsg.xPos, dpMsg.yPos));
+            GameManager.Instance.UpdateDropForPenguin(dpMsg.PieceType, dpMsg.xPos, dpMsg.yPos);
         }
         else
         {

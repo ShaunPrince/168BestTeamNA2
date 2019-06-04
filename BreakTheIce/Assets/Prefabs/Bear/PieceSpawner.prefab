@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   piecePrefabs:
   - {fileID: 8888040485180573944, guid: 1e25bb377f4fbb445a59e21ed759d577, type: 3}
-  - {fileID: 3969825025913938919, guid: 554c1b360f242f34cb931a4be8a9ab16, type: 3}
-  - {fileID: 6206277080755448405, guid: 72c73e1a02534884382392ccaaed09fc, type: 3}
   - {fileID: 454101810507951855, guid: ce44828ad753e444aa06194ad9a490b3, type: 3}
+  - {fileID: 6206277080755448405, guid: 72c73e1a02534884382392ccaaed09fc, type: 3}
+  - {fileID: 3969825025913938919, guid: 554c1b360f242f34cb931a4be8a9ab16, type: 3}
   - {fileID: 452964345087236001, guid: af06118bc1c4341498be67c69f6f89a0, type: 3}

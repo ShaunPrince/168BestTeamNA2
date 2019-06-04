@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PieceSpawner : MonoBehaviour
 {
+    public static PieceSpawner Instance { set; get; }
     public GameObject[] piecePrefabs;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame

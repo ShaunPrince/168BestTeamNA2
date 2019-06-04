@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a826485a28b4c45ad434b47e774f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bear: {fileID: 943411813}
   polarBearCamera: {fileID: 842481340}
   penguinCamera: {fileID: 1622411848}
 --- !u!114 &557820358
