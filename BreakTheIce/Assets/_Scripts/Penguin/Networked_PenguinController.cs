@@ -14,10 +14,14 @@ public class Networked_PenguinController : MonoBehaviour
     private float deltaX;
     private float deltaZ;
     public bool isGrounded;
+
+    // To stop duplicate moves from being sent (if player is not chnaging pos)
+    private Vector3 prevPos;
     // Start is called before the first frame update
     void Start()
     {
         isGrounded = true;
+        prevPos = this.transform.position;
     }
 
     // Update is called once per frame
@@ -78,7 +82,16 @@ public class Networked_PenguinController : MonoBehaviour
         else
             _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier * 0.25f, ForceMode.Acceleration);
 
-        // send movement to server
-        Client.Instance.SendPenguinMove(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        // check if the player has moved or they are stationary
+        if (prevPos != this.transform.position)
+        {
+            // send movement to server
+            Client.Instance.SendPenguinMove(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+
+            // since player has moved, update prev location
+            prevPos = this.transform.position;
+        }
+        // else if hasn't moved, do not send position
+        
     }
 }
