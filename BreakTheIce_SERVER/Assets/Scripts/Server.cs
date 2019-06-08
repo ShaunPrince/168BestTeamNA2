@@ -151,6 +151,9 @@ public class Server : MonoBehaviour
                 // Server basically forwards the msg to the penguin client
                 SendDroppedPieceToPenguin(cnnID, channelID, recHostID, (Net_DropPiece)msg);
                 break;
+            case NetOP.PenguinMove:
+                SendPenguinMove(cnnID, channelID, recHostID, (Net_PenguinMove)msg);
+                break;
         }
 
     }
@@ -160,7 +163,7 @@ public class Server : MonoBehaviour
         // but just to be safe, make sure data is being recieved by first client
         if (cnnID == PlayerType.PolarBear)
         {
-            Debug.Log(string.Format("{0} piece dropping from ({1}, {2})", PieceType.ToType(dpMsg.PieceType), dpMsg.xPos, dpMsg.yPos));
+            Debug.Log(string.Format("{0} piece dropping from ({1}, 0, {2})", PieceType.ToType(dpMsg.PieceType), dpMsg.xPos, dpMsg.yPos));
             SendClient(recHostID, PlayerType.Penguin, dpMsg);
         }
         else
@@ -168,6 +171,18 @@ public class Server : MonoBehaviour
             Debug.Log(string.Format("Should not have recieved a DropPiece msg from client {0}, error in SendDroppedPieceToPenguin in Server.cs", cnnID));
         }
         
+    }
+    private void SendPenguinMove(int cnnID, int channelID, int recHostID, Net_PenguinMove pmMsg)
+    {
+        if (cnnID == PlayerType.Penguin)
+        {
+            Debug.Log(string.Format("Penguin move at ({0}, {1}, {2})", pmMsg.xPos, pmMsg.yPos, pmMsg.zPos));
+            SendClient(recHostID, PlayerType.Penguin, pmMsg);
+        }
+        else
+        {
+            Debug.Log(string.Format("Should not have recieved a PemguinMove msg from client {0}, error in SendPenguinMove in Server.cs", cnnID));
+        }
     }
     #endregion
 

@@ -10,7 +10,7 @@ public class Client : MonoBehaviour
     private const int MAX_USER = 2; // max number of players
     private const int PORT = 26000;
     private const int WEB_PORT = 26001;
-    private const string SERVER_IP = "169.234.26.153"; // while on local host debuging
+    private const string SERVER_IP = "127.0.0.1"; // while on local host debuging
     private const int BYTE_SIZE = 1024;
 
     // Return types for network stuffs
@@ -132,6 +132,10 @@ public class Client : MonoBehaviour
                 SpawnDroppedPiece((Net_DropPiece)msg);
                 break;
 
+            case NetOP.PenguinMove:
+                UpdatePlayerMovementForPolarBear((Net_PenguinMove)msg);
+                break;
+
         }
 
     }
@@ -166,6 +170,18 @@ public class Client : MonoBehaviour
             Debug.Log(string.Format("Should to have recieved a DropPiece msg on PolarBear, error in SpawnDroppedPiece in Client.cs"));
         }
     }
+    private void UpdatePlayerMovementForPolarBear(Net_PenguinMove pmMsg)
+    {
+        if (GameManager.Instance.playerType == PlayerType.PolarBear)
+        {
+            Debug.Log(string.Format("Updating penguin position to ({0}, {1}, {2})", pmMsg.xPos, pmMsg.yPos, pmMsg.zPos));
+            //GameManager.Instance.UpdateDropForPenguin(dpMsg.PieceType, dpMsg.xPos, dpMsg.yPos);
+        }
+        else
+        {
+            Debug.Log(string.Format("Should to have recieved a DropPiece msg on Penguin, error in UpdatePlayerMovementForPolarBear in Client.cs"));
+        }
+    }
     #endregion
 
     #region Send
@@ -195,6 +211,16 @@ public class Client : MonoBehaviour
         dp.yPos = yPos;
 
         SendServer(dp);
+    }
+    public void SendPenguinMove(float xpos, float ypos, float zpos)
+    {
+        Net_PenguinMove pm = new Net_PenguinMove();
+
+        pm.xPos = xpos;
+        pm.yPos = ypos;
+        pm.zPos = zpos;
+
+        SendServer(pm);
     }
     #endregion
 

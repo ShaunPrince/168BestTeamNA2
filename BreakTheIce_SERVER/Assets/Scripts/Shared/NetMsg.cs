@@ -16,7 +16,9 @@ public static class NetOP
     public const int OnClientConnect = 1;   // Server responding to clients connect -> which player they are
 
     public const int DropPiece = 2;
-    public const int OnDropPiece = 3;
+    //public const int OnDropPiece = 3;
+
+    public const int PenguinMove = 3;
 
 }
 
