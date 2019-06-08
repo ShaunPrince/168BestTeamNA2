@@ -177,7 +177,7 @@ public class Server : MonoBehaviour
         if (cnnID == PlayerType.Penguin)
         {
             Debug.Log(string.Format("Penguin move at ({0}, {1}, {2})", pmMsg.xPos, pmMsg.yPos, pmMsg.zPos));
-            SendClient(recHostID, PlayerType.Penguin, pmMsg);
+            SendClient(recHostID, PlayerType.PolarBear, pmMsg);
         }
         else
         {

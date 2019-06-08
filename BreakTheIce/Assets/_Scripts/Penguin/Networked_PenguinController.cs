@@ -48,6 +48,7 @@ public class Networked_PenguinController : MonoBehaviour
     {
         deltaX = Input.GetAxisRaw("Horizontal");
         deltaZ = Input.GetAxisRaw("Vertical");
+
     }
 
     private void CheckGrounded()
@@ -76,5 +77,8 @@ public class Networked_PenguinController : MonoBehaviour
             _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier, ForceMode.Acceleration);
         else
             _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier * 0.25f, ForceMode.Acceleration);
+
+        // send movement to server
+        Client.Instance.SendPenguinMove(this.transform.position.x, this.transform.position.y, this.transform.position.z);
     }
 }

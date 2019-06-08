@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int playerType { set; get; }
 
     public GameObject Bear;
+    public GameObject Penguin;
     public Camera polarBearCamera;
     public Camera penguinCamera;
 
@@ -51,5 +52,9 @@ public class GameManager : MonoBehaviour
         Debug.Log(temp);
         temp.GetComponent<Rigidbody>().useGravity = true;
         //UnityEditor.EditorApplication.isPaused = true;
+    }
+    public void UpdatePenguinMovement(float xPos, float yPos, float zPos)
+    {
+        Penguin.transform.position = new Vector3(xPos, yPos, zPos);
     }
 }

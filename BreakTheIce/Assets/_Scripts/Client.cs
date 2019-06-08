@@ -175,7 +175,7 @@ public class Client : MonoBehaviour
         if (GameManager.Instance.playerType == PlayerType.PolarBear)
         {
             Debug.Log(string.Format("Updating penguin position to ({0}, {1}, {2})", pmMsg.xPos, pmMsg.yPos, pmMsg.zPos));
-            //GameManager.Instance.UpdateDropForPenguin(dpMsg.PieceType, dpMsg.xPos, dpMsg.yPos);
+            GameManager.Instance.UpdatePenguinMovement(pmMsg.xPos, pmMsg.yPos, pmMsg.zPos);
         }
         else
         {
