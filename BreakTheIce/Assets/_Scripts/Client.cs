@@ -10,7 +10,7 @@ public class Client : MonoBehaviour
     private const int MAX_USER = 2; // max number of players
     private const int PORT = 26000;
     private const int WEB_PORT = 26001;
-    private const string SERVER_IP = "127.0.0.1"; // while on local host debuging
+    private const string SERVER_IP = "192.168.0.17"; // while on local host debuging
     private const int BYTE_SIZE = 1024;
 
     // Return types for network stuffs
