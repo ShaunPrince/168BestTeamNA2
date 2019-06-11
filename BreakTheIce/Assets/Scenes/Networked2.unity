@@ -416,6 +416,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74077fc7eb4f06742b623e66e310fab1, type: 3}
+--- !u!223 &271826794 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2650310566108452542, guid: 74077fc7eb4f06742b623e66e310fab1,
+    type: 3}
+  m_PrefabInstance: {fileID: 270571537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &282135121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -577,6 +583,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3918825738140511235, guid: b41c3fa1d90ab00419894b320562a4a8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ec3816279eb83346a96e540835ebfc0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b41c3fa1d90ab00419894b320562a4a8, type: 3}
 --- !u!1001 &515132954
@@ -688,6 +699,7 @@ MonoBehaviour:
   Penguin: {fileID: 1416287651}
   polarBearCamera: {fileID: 842481340}
   penguinCamera: {fileID: 2012449023}
+  PolarBearUI: {fileID: 271826794}
 --- !u!114 &557820358
 MonoBehaviour:
   m_ObjectHideFlags: 0

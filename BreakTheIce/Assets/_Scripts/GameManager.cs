@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject Penguin;
     public Camera polarBearCamera;
     public Camera penguinCamera;
+    public Canvas PolarBearUI;
 
     #region SetUpFunctions
     private void Awake()
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
         // no active camera until player recieves role
         polarBearCamera.enabled = false;
         penguinCamera.enabled = false;
+        PolarBearUI.enabled = false;
     }
     // set player camera dependednt on player type
     public void SetCamera()
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
         {
             Bear.SetActive(true);   // move this at some point
             polarBearCamera.enabled = true;
+            PolarBearUI.enabled = true;
         }
         else if (playerType == PlayerType.Penguin)
         {
