@@ -7,10 +7,12 @@ public class KillBox : MonoBehaviour
 {
     public GameObject bear;
     public GameObject canvas;
+
+    private GameTimer gameTimer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameTimer = canvas.GetComponent<GameTimer>();
     }
 
     // Update is called once per frame
@@ -28,12 +30,7 @@ public class KillBox : MonoBehaviour
         }
         if (collision.gameObject.name.Equals("Penguin"))
         {
-            canvas.transform.GetChild(0).gameObject.SetActive(true);
-            GameObject timer1 = canvas.transform.GetChild(1).gameObject;
-            GameObject timer2 = canvas.transform.GetChild(2).gameObject;
-            timer2.GetComponent<Text>().text = timer1.GetComponent<Text>().text;
-            timer1.SetActive(false);
-            timer2.SetActive(true);
+            gameTimer.GameOverScreen();
         }
         Destroy(collision.gameObject);
     }
