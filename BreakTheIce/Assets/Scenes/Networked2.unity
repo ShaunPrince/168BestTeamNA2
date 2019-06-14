@@ -248,7 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bear: {fileID: 943411813}
-  canvas: {fileID: 0}
 --- !u!1 &223289513
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,11 +588,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ec3816279eb83346a96e540835ebfc0, type: 2}
-    - target: {fileID: 3488531032432377509, guid: b41c3fa1d90ab00419894b320562a4a8,
-        type: 3}
-      propertyPath: PenguinRotation
-      value: 
-      objectReference: {fileID: 685462441}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b41c3fa1d90ab00419894b320562a4a8, type: 3}
 --- !u!1001 &515132954
@@ -809,12 +803,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 408544ed1b93bc34d838ca7c73bb7aed, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 842a9b3a0dea4694a82fb71140e83217, type: 3}
---- !u!1 &685462441 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3918825738142708441, guid: b41c3fa1d90ab00419894b320562a4a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 291275239}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &836143618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6b4abf828334fa8489f334a3889e364b,
