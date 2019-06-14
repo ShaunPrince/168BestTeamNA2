@@ -5,6 +5,7 @@ using UnityEngine;
 public class BearController : MonoBehaviour
 {
     public GameObject ActivePiece;
+    public GameObject nextPiece;
     public GameObject ps;
 
     public float gridSize;
@@ -26,6 +27,8 @@ public class BearController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nextPiece = ps.GetComponent<PieceSpawner>().GenerateRandomPiece();
+        nextPiece.transform.position = new Vector3(1000, 1000, 1000);
         SpawnPiece();
     }
 
@@ -115,8 +118,12 @@ public class BearController : MonoBehaviour
 
     public void SpawnPiece()
     {
+        nextPiece.transform.position = new Vector3(0, 10, 0);
+        ActivePiece = nextPiece;
         
-        ActivePiece = ps.GetComponent<PieceSpawner>().GenerateRandomPiece();
+        nextPiece = ps.GetComponent<PieceSpawner>().GenerateRandomPiece();
+        nextPiece.transform.position = new Vector3(1000, 1000, 1000);
+
         pieceFalling = false;
     }
 

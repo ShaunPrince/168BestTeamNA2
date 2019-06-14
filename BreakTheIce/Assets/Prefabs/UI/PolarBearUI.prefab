@@ -167,8 +167,9 @@ GameObject:
   - component: {fileID: 2650310566108452542}
   - component: {fileID: 687111216934943041}
   - component: {fileID: 3031507330057694700}
+  - component: {fileID: 8371259390935196261}
   m_Layer: 5
-  m_Name: CanvasUI
+  m_Name: PolarBearUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,6 +256,28 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8371259390935196261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6427931445322191851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb44d76caa508044bf7c32b3ab1dbbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bear: {fileID: 0}
+  piecePics:
+  - {fileID: 21300000, guid: ac742b1de932f234886e1e281c019264, type: 3}
+  - {fileID: 21300002, guid: ac742b1de932f234886e1e281c019264, type: 3}
+  - {fileID: 21300004, guid: ac742b1de932f234886e1e281c019264, type: 3}
+  - {fileID: 21300006, guid: ac742b1de932f234886e1e281c019264, type: 3}
+  - {fileID: 21300008, guid: ac742b1de932f234886e1e281c019264, type: 3}
+  nextPieceUI: {fileID: 6523461358478960120}
+  currentShowing: 0
+  currentNext: 0
 --- !u!1 &6523461358478960120
 GameObject:
   m_ObjectHideFlags: 0
