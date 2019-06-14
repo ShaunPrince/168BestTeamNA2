@@ -14,6 +14,10 @@ public class Networked_PenguinController : MonoBehaviour
     private float deltaX;
     private float deltaZ;
     public bool isGrounded;
+    
+    //
+    public GameObject PenguinRotation;
+    //
 
     // To stop duplicate moves from being sent (if player is not chnaging pos)
     private Vector3 prevPos;
@@ -81,6 +85,12 @@ public class Networked_PenguinController : MonoBehaviour
             _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier, ForceMode.Acceleration);
         else
             _rb.AddForce(new Vector3(deltaX, 0, deltaZ) * moveSpeedModifier * 0.25f, ForceMode.Acceleration);
+
+        //Fun Rotation!
+        if (deltaZ != 0)
+            PenguinRotation.transform.Rotate(new Vector3(0, PenguinRotation.transform.rotation.y / deltaZ * 10, 0));
+        else
+            PenguinRotation.transform.Rotate(new Vector3(0, deltaX * 5, 0));
 
         // check if the player has moved or they are stationary
         if (prevPos != this.transform.position)
