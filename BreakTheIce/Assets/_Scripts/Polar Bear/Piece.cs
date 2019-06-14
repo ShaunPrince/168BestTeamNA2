@@ -33,7 +33,7 @@ public class Piece : MonoBehaviour
         if(collision.gameObject.CompareTag("Floor"))
         {
             Debug.Log(string.Format("{0} collided with {1}", PieceType.ToType(pieceType), collision.gameObject));
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject.transform.parent.gameObject);
             if(bear.GetComponent<BearController>().ActivePiece == this.gameObject)
             {
                 bear.GetComponent<BearController>().SpawnPiece();

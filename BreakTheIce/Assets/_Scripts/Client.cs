@@ -136,6 +136,10 @@ public class Client : MonoBehaviour
                 UpdatePlayerMovementForPolarBear((Net_PenguinMove)msg);
                 break;
 
+            case NetOP.StartGame:
+                StartGameForPenguin((Net_StartGame)msg);
+                break;
+
         }
 
     }
@@ -167,7 +171,7 @@ public class Client : MonoBehaviour
         }
         else
         {
-            Debug.Log(string.Format("Should to have recieved a DropPiece msg on PolarBear, error in SpawnDroppedPiece in Client.cs"));
+            Debug.Log(string.Format("Should not have recieved a DropPiece msg on PolarBear, error in SpawnDroppedPiece in Client.cs"));
         }
     }
     private void UpdatePlayerMovementForPolarBear(Net_PenguinMove pmMsg)
@@ -179,7 +183,31 @@ public class Client : MonoBehaviour
         }
         else
         {
-            Debug.Log(string.Format("Should to have recieved a DropPiece msg on Penguin, error in UpdatePlayerMovementForPolarBear in Client.cs"));
+            Debug.Log(string.Format("Should not have recieved an update move msg on Penguin, error in UpdatePlayerMovementForPolarBear in Client.cs"));
+        }
+    }
+    private void StartGameForPenguin(Net_StartGame sgMsg)
+    {
+        if (GameManager.Instance.playerType == PlayerType.Penguin)
+        {
+            Debug.Log("Starting the Game");
+            GameManager.Instance.SetStartGame(sgMsg.started);
+        }
+        else
+        {
+            Debug.Log(string.Format("Should not have recieved a StartGame msg on PolarBear, error in StartGameForPenguin in Client.cs"));
+        }
+    }
+    private void EndGameForPolarbear(Net_EndGame egMsg)
+    {
+        if (GameManager.Instance.playerType == PlayerType.PolarBear)
+        {
+            Debug.Log("Ending Game");
+            GameManager.Instance.SetGameEnded(egMsg.ended);
+        }
+        else
+        {
+            Debug.Log(string.Format("Should not have recieved an EndGame msg on Penguin, error in EndGameForPolarbear in Client.cs"));
         }
     }
     #endregion
@@ -221,6 +249,22 @@ public class Client : MonoBehaviour
         pm.zPos = zpos;
 
         SendServer(pm);
+    }
+    public void SendGameStarted(bool started)
+    {
+        Net_StartGame sg = new Net_StartGame();
+
+        sg.started = true;
+
+        SendServer(sg);
+    }
+    public void SendGameEnded(bool ended)
+    {
+        Net_EndGame eg = new Net_EndGame();
+
+        eg.ended = true;
+
+        SendServer(eg);
     }
     #endregion
 

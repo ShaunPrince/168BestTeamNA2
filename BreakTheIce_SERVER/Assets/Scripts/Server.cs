@@ -84,6 +84,7 @@ public class Server : MonoBehaviour
 
             case NetworkEventType.DisconnectEvent:
                 Debug.Log(string.Format("User {0} has disconnected :(", connectionID));
+                OnDisconnect(connectionID, channelID, recHostID);
                 break;
 
             // where all the important stuff happens!
@@ -133,6 +134,29 @@ public class Server : MonoBehaviour
 
     }
 
+    private void OnDisconnect(int cnnID, int channelID, int recHostID)
+    {
+        int removePlayer = GameManager.Instance.removePlayer();
+        if (removePlayer == 0)
+        {
+            // Failed to add player, game is full
+            Debug.Log("Could not Disconnect player for who knows what reason");
+        }
+        else if (removePlayer == 1)
+        {
+            // Removing player succeeded
+            Debug.Log(string.Format("Player {0}, {1}, removed from game", cnnID, PlayerType.ToType(cnnID)));
+        }
+        else if(removePlayer == 2)
+        {
+            Debug.Log(string.Format("Player {0}, {1}, removed from game\nCan start a new game!", cnnID, PlayerType.ToType(cnnID)));
+        }
+        else
+        {
+            Debug.Log("Error in OnDisconnect() in Server.cs trying to remove player " + cnnID);
+        }
+    }
+
     #region OnData
     private void OnData(int cnnID, int channelID, int recHostID, NetMsg msg)
     {
@@ -153,6 +177,12 @@ public class Server : MonoBehaviour
                 break;
             case NetOP.PenguinMove:
                 SendPenguinMove(cnnID, channelID, recHostID, (Net_PenguinMove)msg);
+                break;
+            case NetOP.StartGame:
+                SendStartGameToPenguin(cnnID, channelID, recHostID, (Net_StartGame)msg);
+                break;
+            case NetOP.EndGame:
+                SendEndGameToPolarBear(cnnID, channelID, recHostID, (Net_EndGame)msg);
                 break;
         }
 
@@ -182,6 +212,32 @@ public class Server : MonoBehaviour
         else
         {
             Debug.Log(string.Format("Should not have recieved a PemguinMove msg from client {0}, error in SendPenguinMove in Server.cs", cnnID));
+        }
+    }
+    private void SendStartGameToPenguin(int cnnID, int channelID, int recHostID, Net_StartGame sgMsg)
+    {
+        // only polarbear can start game
+        if (cnnID == PlayerType.PolarBear)
+        {
+            Debug.Log("PolarBear starting the game!");
+            SendClient(recHostID, PlayerType.Penguin, sgMsg);
+        }
+        else
+        {
+            Debug.Log(string.Format("Should not have recieved a StartGame msg from client {0}, error in SendStartGameToPenguin in Server.cs", cnnID));
+        }
+    }
+    private void SendEndGameToPolarBear(int cnnID, int channelID, int recHostID, Net_EndGame egMsg)
+    {
+        // penguin ends the game with its death
+        if (cnnID == PlayerType.Penguin)
+        {
+            Debug.Log("Penguin ednign the game (with its death)");
+            SendClient(recHostID, PlayerType.PolarBear, egMsg);
+        }
+        else
+        {
+            Debug.Log(string.Format("Should not have recieved an EndGame msg from client {0}, error in SendEndGameToPolarBear in Server.cs", cnnID));
         }
     }
     #endregion

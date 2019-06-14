@@ -30,6 +30,7 @@ public class KillBox : MonoBehaviour
         }
         if (collision.gameObject.name.Equals("Penguin"))
         {
+            GameManager.Instance.SendGameEnded();
             gameTimer.GameOverScreen();
         }
         Destroy(collision.gameObject);

@@ -8,7 +8,7 @@ public class GameTimer : MonoBehaviour
     private Text gameOverScreen;
     private Text timer;
     private float time;
-    private bool gameRunning;
+    //private bool gameRunning;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +16,13 @@ public class GameTimer : MonoBehaviour
         timer = this.transform.GetChild(1).GetComponent<Text>();
         time = 0.0f;
         timer.text = "0:0.0";
-        gameRunning = true;
+        //gameRunning = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameRunning)
+        if (GameManager.Instance.gameStarted && !GameManager.Instance.gameEnded)
         {
             time += Time.deltaTime;
             if (time % 60.0f < 10.0f)
@@ -38,8 +38,8 @@ public class GameTimer : MonoBehaviour
 
     public void GameOverScreen()
     {
-        gameRunning = false;
-        gameOverScreen.text = "Game Over!\nPenguin Survived: " + timer.text;
+        //gameRunning = false;
+        gameOverScreen.text = "Game Over!\nPenguin Survived: " + timer.text + "seconds";
         this.transform.GetChild(0).gameObject.SetActive(true);
     }
 }

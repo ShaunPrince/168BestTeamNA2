@@ -20,6 +20,9 @@ public static class NetOP
 
     public const int PenguinMove = 3;
 
+    public const int StartGame = 4;
+    public const int EndGame = 5;
+
 }
 
 [System.Serializable]

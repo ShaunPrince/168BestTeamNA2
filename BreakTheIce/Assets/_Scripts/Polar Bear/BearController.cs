@@ -12,6 +12,8 @@ public class BearController : MonoBehaviour
     private float deltaZ;
     private float deltaX;
 
+    private bool canDropPiece = false;
+
     public bool pieceFalling;
 
     private void Awake()
@@ -32,6 +34,7 @@ public class BearController : MonoBehaviour
     {
         if(ActivePiece != null)
         {
+            CheckGameStatus();
             CheckInput();
 
         }
@@ -45,11 +48,17 @@ public class BearController : MonoBehaviour
         ResetInput();
     }
 
+    private void CheckGameStatus()
+    {
+        if (GameManager.Instance.gameStarted) canDropPiece = true;
+        if (GameManager.Instance.gameEnded) canDropPiece = false;
+    }
+
     private void CheckInput()
     {
         if(!pieceFalling && ActivePiece != null)
         {
-            if(Input.GetKeyDown(KeyCode.Return))
+            if(canDropPiece && Input.GetKeyDown(KeyCode.Return))
             {
                 DropPiece();
                 return;
