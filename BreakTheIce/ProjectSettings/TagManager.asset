@@ -9,6 +9,7 @@ TagManager:
   - Killbox
   - Bear
   - Penguin
+  - ServerIP
   layers:
   - Default
   - TransparentFX

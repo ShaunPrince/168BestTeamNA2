@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestNetwork.unity
     guid: d242dd4786e738d43af5c80e16dedf2a
   - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: b1f0ffab4277cc842a3120cace7ccc12
+  - enabled: 1
     path: Assets/Scenes/Networked2.unity
     guid: 3e3d574831748ce47aab6b1dad460f17
   m_configObjects: {}

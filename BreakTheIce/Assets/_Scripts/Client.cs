@@ -10,7 +10,7 @@ public class Client : MonoBehaviour
     private const int MAX_USER = 2; // max number of players
     private const int PORT = 26000;
     private const int WEB_PORT = 26001;
-    private const string SERVER_IP = "127.0.0.1"; // while on local host debuging
+    private string SERVER_IP = "127.0.0.1"; // while on local host debuging
     private const int BYTE_SIZE = 1024;
 
     // Return types for network stuffs
@@ -37,6 +37,9 @@ public class Client : MonoBehaviour
     // server related start up
     private void Init()
     {
+        // set server ip from lobby scene
+        SERVER_IP = PassedIPvalue.Instance.Server_IP;
+
         NetworkTransport.Init();
 
         // create channel or road for the data
