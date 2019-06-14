@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 gameStarted = true;
+                PolarBearUI.transform.GetChild(2).gameObject.SetActive(false);
                 Client.Instance.SendGameStarted(gameStarted);
                 Debug.Log("Starting Game!");
                 return;
